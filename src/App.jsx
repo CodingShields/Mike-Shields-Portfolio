@@ -1,14 +1,13 @@
 import { useState } from "react";
-import HomePage from "./pages/home-page/home-page";
-
+import SectionOne from "./pages/components/sectionOne";
 
 function App() {
-
   return (
-    <>
-    <HomePage />  
-    </>
-
+    <div
+    className="w-full h-screen "
+    >
+      <SectionOne />
+    </div>
   );
 }
 

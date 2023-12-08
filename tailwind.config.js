@@ -31,7 +31,19 @@ export default {
         800: "#1e40af",
         900: "#1e3a8a",
       },
+      gray: {
+        50: "#f9fafb",
+        100: "#f4f5f7",
+        200: "#e5e7eb",
+        300: "#d2d6dc",
+        400: "#9fa6b2",
+        500: "#6b7280",
+        600: "#4b5563",
+        700: "#374151",
+        800: "#252f3f",
+        900: "#161e2e",
       },
+    },
     screens: {
       sm: "640px",
       // => @media (min-width: 640px) { ... }
@@ -45,8 +57,11 @@ export default {
       xl: "1280px",
       // => @media (min-width: 1280px) { ... }
 
-      "2xl": "1536px",
+      xxl: "1536px",
       // => @media (min-width: 1536px) { ... }
+
+      xxxl: "1600px",
+      // => @media (min-width: 1600px) { ... }
     },
     spacing: {
       1: "8px",
@@ -84,5 +99,28 @@ export default {
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/container-queries"),
+    plugin(function ({ addComponents }) {
+      addComponents({
+        ".btn": {
+          padding: ".5rem 1rem",
+          borderRadius: ".25rem",
+          fontWeight: "600",
+        },
+        ".btn-blue": {
+          backgroundColor: "#3490dc",
+          color: "#fff",
+          "&:hover": {
+            backgroundColor: "#2779bd",
+          },
+        },
+        ".btn-red": {
+          backgroundColor: "#e3342f",
+          color: "#fff",
+          "&:hover": {
+            backgroundColor: "#cc1f1a",
+          },
+        },
+      });
+    }),
   ],
 };
