@@ -6,10 +6,49 @@ export default {
   theme: {
     extend: {
       animation: {
+        blob: "blob 5s infinite",
         fade: "fadeOut 5s ease-out",
+        text: "text 5s ease-out infinite",
+        backgroundColor: "backgroundColor 6s ease-out infinite",
       },
       transitionProperty: {
         backgroundColor: "background-color",
+      },
+      keyframes: {
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.1)",
+          },
+          "66%": {
+            transform: "translate(-20px, 20px) scale(0.9)",
+          },
+          "100%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+        },
+        backgroundColor: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
       },
     },
 
@@ -90,25 +129,18 @@ export default {
         800: "#5b21b6",
         900: "#4c1d95",
       },
-    },
-    duration: {
-      75: "75ms",
-      100: "100ms",
-      150: "150ms",
-      200: "200ms",
-      300: "300ms",
-      500: "500ms",
-      700: "700ms",
-      1000: "1000ms",
-      2000: "2000ms",
-      3000: "30000ms",
-      4000: "4000ms",
-      5000: "5000ms",
-      6000: "6000ms",
-      7000: "7000ms",
-      8000: "8000ms",
-      9000: "9000ms",
-      10000: "10000ms",
+      indigo: {
+        50: "#eef2ff",
+        100: "#e0e7ff",
+        200: "#c7d2fe",
+        300: "#a5b4fc",
+        400: "#818cf8",
+        500: "#6366f1",
+        600: "#4f46e5",
+        700: "#4338ca",
+        800: "#3730a3",
+        900: "#312e81",
+      },
     },
 
     screens: {
@@ -129,21 +161,6 @@ export default {
 
       xxxl: "1600px",
       // => @media (min-width: 1600px) { ... }
-    },
-    spacing: {
-      1: "8px",
-      2: "12px",
-      3: "16px",
-      4: "24px",
-      5: "32px",
-      6: "48px",
-      7: "64px",
-      8: "96px",
-      9: "128px",
-      10: "192px",
-      11: "256px",
-      12: "384px",
-      13: "512px",
     },
     aspectRatio: {
       auto: "auto",
