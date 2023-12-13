@@ -60,6 +60,7 @@ const SectionOne = () => {
       }`}
       >
         <Tabs />
+        test
       </div>
 
       <div onClick={handleTabsActive}>
