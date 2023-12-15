@@ -67,6 +67,7 @@ const SectionOne = () => {
         }`}
       >
         <Tabs />
+        test
       </div>
       <div className="z-20" onClick={handleTabsActive}>
         <svg
