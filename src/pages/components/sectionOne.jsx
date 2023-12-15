@@ -30,10 +30,10 @@ const SectionOne = () => {
     >
       <div
         className={classNames(
-          "flex flex-col h-2/4 w-2/4  justify-center items-center content-center transition-background text-center delay-1000 duration-1000",
+          "flex flex-col h-2/4 w-2/4  justify-center items-center content-center transition-all text-center delay-300 duration-1000",
           tabsActive
-            ? "cardBG  rounded-2xl shadow-2xl shadow-black "
-            : "bg-black",
+            ? "ease-in duration-700 opacity-100  rounded-2xl shadow-2xl shadow-black cardBG"
+            : "ease-out duration-700  delay-100",
         )}
       >
         <p className="text-6xl py-3 text-white ">Welcome to my portfolio!</p>
