@@ -1,0 +1,51 @@
+.cardBG {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100%;
+    width:100%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@font-face {
+  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")
+    format("woff2");
+  font-family: "Meta";
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+
+.name:hover {
+  transition: all ease-in .25s;
+  -webkit-text-stroke: 1px #d6f4f4;
+  font-variation-settings: "wght" 600, "ital" 5;
+  font-size: 5rem;
+  text-align: center;
+  color: transparent;
+  font-family: "Meta", sans-serif;
+  text-shadow: 10px 10px 5px #07bccc,
+    10px 5px 0px #e601c0,
+    10px 1px 0px #e9019a,
+    15px 1px 0px #f40468,
+    22px 22px 5px #482896;
+  cursor: pointer;
+}
+
+.name {
+	transition: all ease-in .5s;
+  font-variation-settings: "wght" 100, "ital" 1;
+  text-shadow: none;
+}
