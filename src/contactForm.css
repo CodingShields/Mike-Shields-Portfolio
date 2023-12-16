@@ -1,0 +1,63 @@
+.buttonForm {
+  position: relative;
+  transition: all 0.3s;
+  width: 160px;
+  height: 80px;
+  margin: 10px;
+}
+
+.buttonForm:before {
+  padding: 10px;
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  right: 5%;
+  bottom: 15%;
+  border-top: 4px solid #ff6347;
+  border-bottom: 4px solid tomato;
+  transition: all 0.3s;
+}
+.buttonForm:after {
+  padding: 10px;
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+  bottom: 5%;
+  border-left: 4px solid tomato;
+  border-right: 4px solid tomato;
+  transition: all 0.3s;
+}
+.buttonForm:hover {
+  text-shadow: 0 0 50px tomato;
+}
+.buttonForm:hover:before {
+  top: -10%;
+  left: -5%;
+  right: -5%;
+  bottom: -10%;
+}
+.buttonForm:hover:after {
+  top: -10%;
+  left: -5%;
+  right: -5%;
+  bottom: -10%;
+}
+
+/* contactForm.css */
+.fade-in-out {
+  animation: fade 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

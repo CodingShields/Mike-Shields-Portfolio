@@ -10,7 +10,7 @@ const Tabs = () => {
           return (
             <button
               key={index}
-              className="button ease-out duration-200 mx-8 text-gray-500  hover:animate-pulse hover:text-white hover:ease-in hover:duration-400 hover:-translate-y-1 hover:delay-100"
+              className="button ease-out duration-200 mx-8 text-gray-700  hover:animate-pulse hover:text-white hover:ease-in hover:duration-400 hover:-translate-y-1 hover:delay-100"
             >
               {item}
             </button>

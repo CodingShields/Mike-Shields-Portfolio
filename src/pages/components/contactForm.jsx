@@ -1,218 +1,134 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+import { useState, useEffect } from "react";
+import "../../contactForm.css";
+
 const ContactForm = () => {
-  
-  
-  
-    return (
-    <div className="relative bg-white">
-      <div className="lg:absolute lg:inset-0 lg:left-1/2">
-        <img
-          className="h-64 w-full bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full"
-          src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80"
-          alt=""
-        />
-      </div>
-      <div className="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">
-        <div className="px-6 lg:px-8">
-          <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-              Let's work together
-            </h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-              Proin volutpat consequat porttitor cras nullam gravida at orci
-              molestie a eu arcu sed ut tincidunt magna.
-            </p>
-            <form action="#" method="POST" className="mt-16">
-              <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="first-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    First name
-                  </label>
-                  <div className="mt-2.5">
-                    <input
-                      type="text"
-                      name="first-name"
-                      id="first-name"
-                      autoComplete="given-name"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="last-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    Last name
-                  </label>
-                  <div className="mt-2.5">
-                    <input
-                      type="text"
-                      name="last-name"
-                      id="last-name"
-                      autoComplete="family-name"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                <div className="sm:col-span-2">
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    Email
-                  </label>
-                  <div className="mt-2.5">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                <div className="sm:col-span-2">
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    Company
-                  </label>
-                  <div className="mt-2.5">
-                    <input
-                      type="text"
-                      name="company"
-                      id="company"
-                      autoComplete="organization"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                <div className="sm:col-span-2">
-                  <div className="flex justify-between text-sm leading-6">
-                    <label
-                      htmlFor="phone"
-                      className="block font-semibold text-gray-900"
-                    >
-                      Phone
-                    </label>
-                    <p id="phone-description" className="text-gray-400">
-                      Optional
-                    </p>
-                  </div>
-                  <div className="mt-2.5">
-                    <input
-                      type="tel"
-                      name="phone"
-                      id="phone"
-                      autoComplete="tel"
-                      aria-describedby="phone-description"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                <div className="sm:col-span-2">
-                  <div className="flex justify-between text-sm leading-6">
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-semibold leading-6 text-gray-900"
-                    >
-                      How can we help you?
-                    </label>
-                    <p id="message-description" className="text-gray-400">
-                      Max 500 characters
-                    </p>
-                  </div>
-                  <div className="mt-2.5">
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      aria-describedby="message-description"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      defaultValue={""}
-                    />
-                  </div>
-                </div>
-                <fieldset className="sm:col-span-2">
-                  <legend className="block text-sm font-semibold leading-6 text-gray-900">
-                    Expected budget
-                  </legend>
-                  <div className="mt-4 space-y-4 text-sm leading-6 text-gray-600">
-                    <div className="flex gap-x-2.5">
-                      <input
-                        id="budget-under-25k"
-                        name="budget"
-                        defaultValue="under_25k"
-                        type="radio"
-                        className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-                      />
-                      <label htmlFor="budget-under-25k">Less than $25K</label>
-                    </div>
-                    <div className="flex gap-x-2.5">
-                      <input
-                        id="budget-25k-50k"
-                        name="budget"
-                        defaultValue="25k-50k"
-                        type="radio"
-                        className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-                      />
-                      <label htmlFor="budget-25k-50k">$25K – $50K</label>
-                    </div>
-                    <div className="flex gap-x-2.5">
-                      <input
-                        id="budget-50k-100k"
-                        name="budget"
-                        defaultValue="50k-100k"
-                        type="radio"
-                        className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-                      />
-                      <label htmlFor="budget-50k-100k">$50K – $100K</label>
-                    </div>
-                    <div className="flex gap-x-2.5">
-                      <input
-                        id="budget-over-100k"
-                        name="budget"
-                        defaultValue="over_100k"
-                        type="radio"
-                        className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-                      />
-                      <label htmlFor="budget-over-100k">$100K+</label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              <div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
-                <button
-                  type="submit"
-                  className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Send message
-                </button>
-              </div>
-            </form>
+  const [formData, setFormData] = useState({
+    title: "",
+    button: "",
+    error: false,
+    errorMessage: "",
+  });
+
+  const [userInput, setUserInput] = useState({
+    companyName: "",
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+
+  const [currentFormIndex, setCurrentFormIndex] = useState(0);
+
+  const form = [
+    {
+      id: 0,
+      title: "Company Name",
+      button: "Next",
+      error: "Please enter Company Name",
+    },
+    {
+      id: 1,
+      title: "Full Name",
+      button: "Next",
+      error: "Please enter Full Name",
+    },
+    {
+      id: 2,
+      title: "Email",
+      button: "Next",
+      error: "Please enter Email",
+    },
+    {
+      id: 3,
+      title: "Phone Number",
+      button: "Next",
+      error: "Please enter Phone Number",
+    },
+    {
+      id: 4,
+      title: "Message",
+      button: "Submit",
+      error: "Please enter Message",
+    },
+    {
+      id: 5,
+      title: "Thank you! I will be in touch soon!",
+      button: "Close",
+    },
+  ];
+
+  const handleOnChange = (e) => {
+    const changeData = e.target.value;
+    setIsTitleVisible(false); // Hide the title before changing the title itself
+
+    setTimeout(() => {
+      setFormData({
+        ...formData,
+        title: form[currentFormIndex].title,
+        button: form[currentFormIndex].button,
+        error: false,
+        errorMessage: "",
+      });
+      setUserInput({
+        ...userInput,
+        [form[currentFormIndex].title]: changeData,
+      });
+      setIsTitleVisible(true); // Show the title after changing the title
+    }, 300); // You can adjust the delay duration as needed
+  };
+
+  const handleClick = () => {
+    // Check if the current form index is the last one
+    if (currentFormIndex < form.length - 1) {
+      // Move to the next form index
+      setCurrentFormIndex(currentFormIndex + 1);
+    } else {
+      // Handle submission or closing logic for the last form
+      // You can implement your submission logic here
+    }
+  };
+
+  useEffect(() => {
+    setFormData({
+      title: form[currentFormIndex].title,
+      button: form[currentFormIndex].button,
+      error: false,
+      errorMessage: "",
+    });
+  }, [currentFormIndex]);
+
+  return (
+    <div className="w-full min-w-96 flex flex-col justify-center content-center items-center">
+      <div className="flex min-w-96	min-h-48 bg-gray-400 rounded-2xl p-20">
+        <div className="flex flex-row min-w-96	 py-8 bg-gray-600  rounded-2xl shadow-xl shadow-tomato-100 ">
+          <div className="flex flex-row min-w-96 h-min-48	 justify-end items-center">
+            <div className="w-72 min-w-96 justify-center items-end  mx-0 px-0">
+              <p className=" w-48 min-w-96 text-2xl text-center font-bold text-tomato-100 ">
+                {formData.title}:
+              </p>
+            </div>
+            <div className="w-96 flex flex-row ">
+              <input
+                required
+                onChange={(e) => handleOnChange(e)}
+                placeholder={formData.title}
+                value={userInput[formData.title]}
+                className="w-96 mx-6 border-0 bg-transparent border-b-2 border-red-600 outline-none placeholder:text-gray-300 placeholder:italic focus:outline-none focus:ring-0 focus:border-b-4 focus:border-green-400 focus:transition-all focus:ease-in-out focus:duration-700 focus:delay-400"
+                type="text"
+              ></input>
+            </div>
+
+            <div
+              onClick={handleClick}
+              className="flex justify-center items-center h-full w-72 px-6 py-4 m-4 text-white buttonForm  active:ease-in-out active:duration-300 active:delay-400 "
+            >
+              <p className="text-3xl text-center">{formData.button}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ContactForm;
