@@ -1,35 +1,34 @@
 .cardBG {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-  animation: opacity 2s ease ;
-	height: 100%;
-    width:100%;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  animation: opacity 2s ease;
+  height: 100%;
+  width: 100%;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes opacity {
   0% {
     opacity: 0;
   }
-  50%{
+  50% {
     opacity: 0.5;
   }
   100% {
     opacity: 1;
   }
-  
 }
 
 @font-face {
@@ -40,17 +39,18 @@
   font-weight: normal;
 }
 
-
-
-.name:hover {
-  transition: all ease-in .25s;
+.name {
+  transition: all ease-in 0.2s;
   -webkit-text-stroke: 1px #d6f4f4;
-  font-variation-settings: "wght" 600, "ital" 5;
+  font-variation-settings:
+    "wght" 1000,
+    "ital" 5;
   font-size: 5rem;
   text-align: center;
   color: transparent;
   font-family: "Meta", sans-serif;
-  text-shadow: 10px 10px 5px #07bccc,
+  text-shadow:
+    10px 10px 5px #07bccc,
     10px 5px 0px #e601c0,
     10px 1px 0px #e9019a,
     15px 1px 0px #f40468,
@@ -58,8 +58,38 @@
   cursor: pointer;
 }
 
-.name {
-	transition: all ease-in .5s;
-  font-variation-settings: "wght" 100, "ital" 1;
+.name:hover {
+  transition: all ease-in 0.5s;
+  font-variation-settings:
+    "wght" 100,
+    "ital" 1;
   text-shadow: none;
+}
+/* DownLoad CSS */
+.downloadSvg {
+  margin-bottom: 80px;
+}
+
+.downloadBtn {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.downloadText {
+  user-select: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.subCircle {
+  pointer-events: none;
+}
+
+.strokeW {
+  animation: strokeW 0.6s forwards;
+  @keyframes strokeW {
+    to {
+      stroke-width: 1.16;
+    }
+  }
 }

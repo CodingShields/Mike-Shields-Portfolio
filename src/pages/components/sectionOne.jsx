@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import Tabs from "./tabs";
-import doubleChevUp from "../../assets/icons/doubleChevUp.svg";
-import fadedCircle from "../../assets/images/fadedCircle.svg";
+import Modal from "./resumeModal";
 import "../../sectionOne.css";
 
 const SectionOne = () => {
   const [tabsActive, setTabsActive] = useState(false);
-
+  const [resumeModal, setResumeModal] = useState(false);
   const handleTabsActive = () => {
     setTabsActive(!tabsActive);
+  };
+  const closeModal = () => {
+    setResumeModal(!resumeModal);
   };
 
   function classNames(...classes) {
@@ -63,10 +65,12 @@ const SectionOne = () => {
         className={`flex flex-row transition-opacity mt-20 ${
           tabsActive
             ? "ease-in duration-700 opacity-100"
-            : "ease-out duration-700 opacity-0"
+            : "ease-out duration-700 opacity-0 "
         }`}
       >
-        <Tabs />
+        <Tabs openResumeModal={closeModal} />
+        
+            {resumeModal ?<Modal /> :""}
       </div>
       <div className="z-20" onClick={handleTabsActive}>
         {tabsActive ? (
@@ -90,12 +94,12 @@ const SectionOne = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5"
             />
           </svg>
