@@ -5,12 +5,9 @@ import "../../sectionOne.css";
 
 const SectionOne = () => {
   const [tabsActive, setTabsActive] = useState(false);
-  const [resumeModal, setResumeModal] = useState(false);
+
   const handleTabsActive = () => {
     setTabsActive(!tabsActive);
-  };
-  const closeModal = () => {
-    setResumeModal(!resumeModal);
   };
 
   function classNames(...classes) {
@@ -21,21 +18,26 @@ const SectionOne = () => {
     setTabsActive(false);
   }, []);
 
+  const handleTabClick = (e) => {
+    const name = e.target.name;
+    console.log(name);
+  };
+
   return (
     <div
       className={classNames(
         "w-full h-full justify-center items-center flex flex-col transition-background ease-in-out duration-1000 ",
         tabsActive
-          ? "bg-black bg-opacity-75 " // Opacity set to 1 when active
+          ? "bg-black cardBG" // Opacity set to 1 when active
           : "bg-black ", // Opacity set to 0 when not active
       )}
     >
       <div
         className={classNames(
           "flex flex-col h-2/4 w-2/4  bopacity-0 justify-center items-center content-center transition-all text-center ",
-          tabsActive
-            ? " delay-1000 duration-1000 rounded-2xl shadow-2xl shadow-green-400 cardBG"
-            : "delay-800 duration-1000 ",
+          // tabsActive
+          //   ? " delay-1000 duration-1000 rounded-2xl shadow-2xl shadow-green-400 cardBG"
+          //   : "delay-800 duration-1000 ",
         )}
       >
         <p className="text-6xl py-3 text-white ">Welcome to my portfolio!</p>
@@ -68,9 +70,7 @@ const SectionOne = () => {
             : "ease-out duration-700 opacity-0 "
         }`}
       >
-        <Tabs openResumeModal={closeModal} />
-        
-            {resumeModal ?<Modal /> :""}
+        <Tabs handleTabClick={handleTabClick} />
       </div>
       <div className="z-20" onClick={handleTabsActive}>
         {tabsActive ? (

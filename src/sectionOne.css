@@ -1,7 +1,7 @@
 .cardBG {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 4s ease infinite;
   animation: opacity 2s ease;
   height: 100%;
   width: 100%;
@@ -39,7 +39,7 @@
   font-weight: normal;
 }
 
-.name {
+.name:hover {
   transition: all ease-in 0.2s;
   -webkit-text-stroke: 1px #d6f4f4;
   font-variation-settings:
@@ -58,7 +58,7 @@
   cursor: pointer;
 }
 
-.name:hover {
+.name{
   transition: all ease-in 0.5s;
   font-variation-settings:
     "wght" 100,
