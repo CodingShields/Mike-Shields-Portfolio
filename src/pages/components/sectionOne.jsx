@@ -26,7 +26,7 @@ const SectionOne = () => {
   return (
     <div
       className={classNames(
-        "w-full h-full justify-center items-center flex flex-col transition-background ease-in-out duration-1000 ",
+        "w-full h-full justify-center items-center flex flex-col transition-background ease-in-out duration-700 ",
         tabsActive
           ? "bg-black cardBG" // Opacity set to 1 when active
           : "bg-black ", // Opacity set to 0 when not active
@@ -70,12 +70,12 @@ const SectionOne = () => {
             : "ease-out duration-700 opacity-0 "
         }`}
       >
-        <Tabs handleTabClick={handleTabClick} />
+        {/* <Tabs handleTabClick={handleTabClick} /> */}
       </div>
       <div className="z-20" onClick={handleTabsActive}>
         {tabsActive ? (
           <svg
-            className="h-16 animate-pulse mb-8 mt-2 cursor-pointer stroke-green-500 z-20 -translate-y-38 duration-1000 ease-in-out"
+            className="h-16 animate-pulse mb-8 mt-2 cursor-pointer stroke-black z-20 -translate-y-38 duration-1000 ease-in-out"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
