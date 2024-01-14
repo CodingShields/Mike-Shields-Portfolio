@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import Tabs from "./tabs";
 import Modal from "./resumeModal";
 import "../../sectionOne.css";
+import DoubleChevDownBtn from "./buttons/doubleChevDownBtn";
+import DoubleChevUpBtn from "./buttons/doubleChevUpBtn";
+import DragContainer from "./DragContainer";
 
 const SectionOne = () => {
-  const [tabsActive, setTabsActive] = useState(false);
-
+  const [tabsActive, setTabsActive] = useState(true);
+  const [parentCurrentTab, setParentCurrentTab] = useState(null);
   const handleTabsActive = () => {
     setTabsActive(!tabsActive);
   };
@@ -18,9 +21,9 @@ const SectionOne = () => {
     setTabsActive(false);
   }, []);
 
-  const handleTabClick = (e) => {
-    const name = e.target.name;
-    console.log(name);
+  const updateParentCurrentTab = (newTab) => {
+    console.log(parentCurrentTab);
+    setParentCurrentTab(newTab);
   };
 
   return (
@@ -72,39 +75,27 @@ const SectionOne = () => {
       >
         {/* <Tabs handleTabClick={handleTabClick} /> */}
       </div>
-      <div className="z-20" onClick={handleTabsActive}>
+      <div
+        className={
+          (classNames = ` ${
+            tabsActive
+              ? "z-20 animate-pulse mb-8 mt-2 cursor-pointer z-20-translate-y-38 duration-1000 ease-in-out"
+              : " animate-pulse mb-8 mt-2 cursor-pointer z-20 translate-y-96 duration-1000 ease-in-out"
+          } `)
+        }
+        onClick={handleTabsActive}
+      >
         {tabsActive ? (
-          <svg
-            className="h-16 animate-pulse mb-8 mt-2 cursor-pointer stroke-black z-20 -translate-y-38 duration-1000 ease-in-out"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5"
-            />
-          </svg>
+          <DoubleChevUpBtn handleTabsActive={handleTabsActive} />
         ) : (
-          <svg
-            className="h-16 animate-pulse mb-8 mt-2 cursor-pointer stroke-green-500 z-20 -translate-y-96 duration-1000 ease-in-out"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
+          <DoubleChevDownBtn handleTabsActive={handleTabsActive} />
         )}
       </div>
+      {tabsActive ? (
+        <DragContainer setCurrentTab={updateParentCurrentTab} />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
