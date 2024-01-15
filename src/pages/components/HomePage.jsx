@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
-import Tabs from "./tabs";
-import Modal from "./resumeModal";
-import "../../sectionOne.css";
 import DoubleChevDownBtn from "./buttons/doubleChevDownBtn";
 import DoubleChevUpBtn from "./buttons/doubleChevUpBtn";
 import DragContainer from "./DragContainer";
+import ResumeModal from "./resumeModal";
 
-const SectionOne = () => {
+const HomePage = () => {
   const [tabsActive, setTabsActive] = useState(true);
-  const [parentCurrentTab, setParentCurrentTab] = useState(null);
+  const [tabName, setTabName] = useState("");
+
   const handleTabsActive = () => {
     setTabsActive(!tabsActive);
   };
@@ -17,13 +16,23 @@ const SectionOne = () => {
     return classes.filter(Boolean).join(" ");
   }
 
-  useEffect(() => {
-    setTabsActive(false);
-  }, []);
+  // useEffect(() => {
+  //   setTabsActive(false);
+  // }, []);
 
-  const updateParentCurrentTab = (newTab) => {
-    console.log(parentCurrentTab);
-    setParentCurrentTab(newTab);
+  const updateCurrentTab = (currentBox) => {
+    const name = currentBox.name;
+    const value = currentBox.selected;
+    if (value === true) {
+      setTabName(name);
+    } else {
+      setTabName("");
+    }
+    console.log(currentBox);
+  };
+
+  const closeModal = () => {
+    setTabName("");
   };
 
   return (
@@ -31,16 +40,16 @@ const SectionOne = () => {
       className={classNames(
         "w-full h-full justify-center items-center flex flex-col transition-background ease-in-out duration-700 ",
         tabsActive
-          ? "bg-black cardBG" // Opacity set to 1 when active
+          ? "bg-black bg-opacity-75" // Opacity set to 1 when active
           : "bg-black ", // Opacity set to 0 when not active
       )}
     >
       <div
         className={classNames(
           "flex flex-col h-2/4 w-2/4  bopacity-0 justify-center items-center content-center transition-all text-center ",
-          // tabsActive
-          //   ? " delay-1000 duration-1000 rounded-2xl shadow-2xl shadow-green-400 cardBG"
-          //   : "delay-800 duration-1000 ",
+          tabsActive
+            ? " delay-1000 duration-1000 rounded-2xl shadow-2xl shadow-green-500 sectionOneCard"
+            : "delay-800 duration-1000 ",
         )}
       >
         <p className="text-6xl py-3 text-white ">Welcome to my portfolio!</p>
@@ -72,9 +81,7 @@ const SectionOne = () => {
             ? "ease-in duration-700 opacity-100"
             : "ease-out duration-700 opacity-0 "
         }`}
-      >
-        {/* <Tabs handleTabClick={handleTabClick} /> */}
-      </div>
+      ></div>
       <div
         className={
           (classNames = ` ${
@@ -91,13 +98,10 @@ const SectionOne = () => {
           <DoubleChevDownBtn handleTabsActive={handleTabsActive} />
         )}
       </div>
-      {tabsActive ? (
-        <DragContainer setCurrentTab={updateParentCurrentTab} />
-      ) : (
-        ""
-      )}
+        {tabsActive ? <DragContainer setOpenTab={updateCurrentTab} /> : ""}
+      {tabName === "Resume" ? <ResumeModal closeModal={closeModal} /> : ""}
     </div>
   );
 };
 
-export default SectionOne;
+export default HomePage;

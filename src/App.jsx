@@ -1,12 +1,9 @@
-import { useState } from "react";
-import SectionOne from "./pages/components/sectionOne";
+import HomePage from "./pages/components/HomePage";
 
 function App() {
   return (
-    <div
-    className="w-full h-screen "
-    >
-      <SectionOne />
+    <div className="w-full h-screen ">
+      <HomePage />
     </div>
   );
 }
